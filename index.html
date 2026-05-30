@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurum — Fine Dining Experience</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════════ -->
+  <div id="loader" class="loader">
+    <div class="loader__bg"></div>
+    <div class="loader__content">
+      <div class="loader__emblem">
+        <svg class="loader__ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" stroke-dasharray="339.3" stroke-dashoffset="339.3"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c9a84c"/>
+              <stop offset="50%" stop-color="#f0d080"/>
+              <stop offset="100%" stop-color="#c9a84c"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="loader__logo-text">
+          <span class="loader__a">A</span>
+          <span class="loader__urum">URUM</span>
+        </div>
+      </div>
+      <p class="loader__tagline">Crafting Moments of Culinary Excellence</p>
+      <div class="loader__bar">
+        <div class="loader__fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       CURSOR
+  ═══════════════════════════════════════════ -->
+  <div id="cursor" class="cursor"></div>
+  <div id="cursor-follower" class="cursor-follower"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar__inner">
+      <a href="#home" class="navbar__logo">
+        <span class="navbar__logo-a">A</span><span class="navbar__logo-urum">URUM</span>
+      </a>
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#specials" class="nav-link">Specials</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#reservation" class="nav-link nav-link--reserve">Reserve a Table</a></li>
+      </ul>
+      <button class="navbar__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="home" class="hero">
+    <!-- Cinematic background layers -->
+    <div class="hero__bg">
+      <div class="hero__bg-img"></div>
+      <div class="hero__bg-overlay"></div>
+      <div class="hero__bg-vignette"></div>
+    </div>
+
+    <!-- Floating 3D food/decor elements -->
+    <div class="hero__floats" id="heroFloats">
+      <div class="hero__float hero__float--1" data-depth="0.3">
+        <div class="float-orb float-orb--gold"></div>
+      </div>
+      <div class="hero__float hero__float--2" data-depth="0.15">
+        <div class="float-orb float-orb--sm"></div>
+      </div>
+      <div class="hero__float hero__float--3" data-depth="0.2">
+        <div class="float-plate">
+          <div class="float-plate__ring"></div>
+          <div class="float-plate__inner"></div>
+        </div>
+      </div>
+      <div class="hero__float hero__float--4" data-depth="0.1">
+        <div class="float-leaf float-leaf--1"></div>
+      </div>
+      <div class="hero__float hero__float--5" data-depth="0.25">
+        <div class="float-leaf float-leaf--2"></div>
+      </div>
+      <div class="hero__float hero__float--6" data-depth="0.18">
+        <div class="float-spark"></div>
+      </div>
+    </div>
+
+    <!-- Particles -->
+    <canvas id="particleCanvas" class="hero__particles"></canvas>
+
+    <!-- Main hero content -->
+    <div class="hero__content" id="heroContent">
+      <div class="hero__eyebrow">
+        <span class="hero__line"></span>
+        <span class="hero__eyebrow-text">Est. 2009 · Dubai, UAE</span>
+        <span class="hero__line"></span>
+      </div>
+
+      <h1 class="hero__headline">
+        <span class="hero__headline-top reveal-hero">Where Flavour</span>
+        <span class="hero__headline-mid reveal-hero">
+          <em>Becomes</em>
+          <span class="hero__headline-accent">Art</span>
+        </span>
+        <span class="hero__headline-btm reveal-hero">Timeless Craft, Pure Taste</span>
+      </h1>
+
+      <p class="hero__sub reveal-hero">
+        A sanctuary of elevated cuisine — where every plate<br />
+        is a canvas and every evening, a memory.
+      </p>
+
+      <div class="hero__ctas reveal-hero">
+        <a href="#reservation" class="btn btn--gold">
+          <span class="btn__text">Reserve Your Table</span>
+          <span class="btn__shine"></span>
+        </a>
+        <a href="#menu" class="btn btn--ghost">
+          <span class="btn__text">Explore Menu</span>
+        </a>
+      </div>
+
+      <!-- Award pills -->
+      <div class="hero__awards reveal-hero">
+        <div class="award-pill">
+          <span class="award-pill__icon">✦</span>
+          <span>Michelin 2★</span>
+        </div>
+        <div class="award-pill__sep"></div>
+        <div class="award-pill">
+          <span class="award-pill__icon">✦</span>
+          <span>World's Top 50</span>
+        </div>
+        <div class="award-pill__sep"></div>
+        <div class="award-pill">
+          <span class="award-pill__icon">✦</span>
+          <span>Forbes 5★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll">
+      <div class="scroll-indicator">
+        <div class="scroll-indicator__mouse">
+          <div class="scroll-indicator__dot"></div>
+        </div>
+        <span class="scroll-indicator__label">Scroll to Explore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="about" class="section about-section">
+    <div class="about-section__glow"></div>
+    <div class="container">
+      <div class="about-section__grid">
+
+        <!-- LEFT — Visual column -->
+        <div class="about-section__visual reveal-left">
+          <div class="about-img-stack">
+            <div class="about-img-stack__main">
+              <div class="about-img-stack__img about-img-stack__img--1">
+                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=800&q=80"
+                     alt="Aurum fine dining" loading="lazy" />
+              </div>
+              <div class="about-img-stack__border"></div>
+            </div>
+            <div class="about-img-stack__secondary">
+              <div class="about-img-stack__img about-img-stack__img--2">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80"
+                     alt="Chef crafting a dish" loading="lazy" />
+              </div>
+            </div>
+            <div class="about-img-stack__accent-v"></div>
+            <div class="about-img-stack__accent-h"></div>
+            <div class="about-img-stack__tag glass-card">
+              <span class="about-img-stack__tag-icon">✦</span>
+              <div>
+                <p class="about-img-stack__tag-num">2009</p>
+                <p class="about-img-stack__tag-label">Est. Dubai, UAE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — Text column -->
+        <div class="about-section__text">
+          <div class="section-label reveal" data-delay="0.1">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">Our Story</span>
+          </div>
+          <h2 class="section-title reveal" data-delay="0.2">
+            A Legacy of <em>Flavour</em><br />Born in Passion
+          </h2>
+          <p class="about-section__body reveal" data-delay="0.3">
+            Aurum was born from a singular obsession — the belief that every meal
+            can be a transformative experience. Founded by Chef Dominique Aurèle in
+            the heart of Dubai, we have spent over fifteen years redefining what
+            it means to dine in luxury.
+          </p>
+          <p class="about-section__body reveal" data-delay="0.4">
+            Our philosophy draws from classical French technique, the bold spices
+            of the Middle East, and the pristine produce of the Mediterranean. Each
+            plate is a conversation between tradition and innovation.
+          </p>
+          <div class="about-section__signature reveal" data-delay="0.5">
+            <div class="about-section__sig-line"></div>
+            <div>
+              <p class="about-section__sig-name">Chef Dominique Aurèle</p>
+              <p class="about-section__sig-title">Executive Chef &amp; Founder</p>
+            </div>
+          </div>
+          <a href="#reservation" class="btn btn--ghost reveal" data-delay="0.6">
+            <span class="btn__text">Experience Aurum</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- STATISTICS COUNTERS -->
+      <div class="about-stats">
+        <div class="about-stats__item reveal" data-delay="0.1">
+          <div class="about-stats__num-wrap">
+            <span class="about-stats__num" data-count="48000" data-suffix="+">0</span>
+          </div>
+          <div class="about-stats__divider"></div>
+          <p class="about-stats__label">Dishes Served</p>
+        </div>
+        <div class="about-stats__sep"></div>
+        <div class="about-stats__item reveal" data-delay="0.2">
+          <div class="about-stats__num-wrap">
+            <span class="about-stats__num" data-count="32000" data-suffix="+">0</span>
+          </div>
+          <div class="about-stats__divider"></div>
+          <p class="about-stats__label">Happy Guests</p>
+        </div>
+        <div class="about-stats__sep"></div>
+        <div class="about-stats__item reveal" data-delay="0.3">
+          <div class="about-stats__num-wrap">
+            <span class="about-stats__num" data-count="15" data-suffix="">0</span>
+          </div>
+          <div class="about-stats__divider"></div>
+          <p class="about-stats__label">Years Experience</p>
+        </div>
+        <div class="about-stats__sep"></div>
+        <div class="about-stats__item reveal" data-delay="0.4">
+          <div class="about-stats__num-wrap">
+            <span class="about-stats__num" data-count="24" data-suffix="">0</span>
+          </div>
+          <div class="about-stats__divider"></div>
+          <p class="about-stats__label">Awards Won</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MENU SECTION
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="menu" class="section menu-section">
+    <div class="menu-section__bg-text" aria-hidden="true">MENU</div>
+    <div class="container">
+
+      <div class="menu-section__header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">Culinary Artistry</span>
+          <span class="section-label__line" style="transform:scaleX(-1)"></span>
+        </div>
+        <h2 class="section-title reveal" data-delay="0.1" style="text-align:center;">
+          The <em>Aurum</em> Menu
+        </h2>
+        <p class="section-subtitle reveal" data-delay="0.2" style="margin:0 auto;text-align:center;">
+          Each dish is a carefully composed expression of flavour, texture, and artisanal craft.
+        </p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="menu-tabs reveal" data-delay="0.3">
+        <button class="menu-tab active" data-cat="starters">Starters</button>
+        <button class="menu-tab" data-cat="mains">Main Course</button>
+        <button class="menu-tab" data-cat="desserts">Desserts</button>
+        <button class="menu-tab" data-cat="drinks">Drinks</button>
+        <button class="menu-tab" data-cat="chef">Chef Specials</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- STARTERS -->
+        <div class="menu-card tilt-card" data-cat="starters">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80" alt="Truffle Carpaccio" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+            <span class="menu-card__badge">Signature</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Truffle Beef Carpaccio</h3>
+              <span class="menu-card__price">$38</span>
+            </div>
+            <p class="menu-card__desc">Paper-thin wagyu, shaved black truffle, 24-month parmigiano, caperberry vinaigrette</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Starters</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="starters">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Scallop Ceviche" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Seared Scallop Ceviche</h3>
+              <span class="menu-card__price">$32</span>
+            </div>
+            <p class="menu-card__desc">Hokkaido scallops, yuzu tiger milk, micro herb, smoked paprika oil</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Starters</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="starters">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Foie Gras" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+            <span class="menu-card__badge">Chef's Pick</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Pan-Seared Foie Gras</h3>
+              <span class="menu-card__price">$46</span>
+            </div>
+            <p class="menu-card__desc">Duck liver, brioche toast, mango confit, aged balsamic pearls</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Starters</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <!-- MAINS -->
+        <div class="menu-card tilt-card" data-cat="mains">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=80" alt="Wagyu Steak" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+            <span class="menu-card__badge">Signature</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">A5 Wagyu Tenderloin</h3>
+              <span class="menu-card__price">$185</span>
+            </div>
+            <p class="menu-card__desc">Japanese A5 wagyu, black garlic purée, pomme soufflé, red wine jus</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Main Course</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="mains">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" alt="Seabass" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Mediterranean Seabass</h3>
+              <span class="menu-card__price">$72</span>
+            </div>
+            <p class="menu-card__desc">Whole roasted seabass, saffron bouillabaisse, rouille, fennel &amp; citrus</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Main Course</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="mains">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80" alt="Duck Confit" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Duck Confit Royale</h3>
+              <span class="menu-card__price">$64</span>
+            </div>
+            <p class="menu-card__desc">48-hour duck leg, cherry gastrique, celeriac gratin, wilted greens</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Main Course</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="menu-card tilt-card" data-cat="desserts">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" alt="Chocolate Sphere" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+            <span class="menu-card__badge">Signature</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Chocolate Cosmos Sphere</h3>
+              <span class="menu-card__price">$26</span>
+            </div>
+            <p class="menu-card__desc">Dark 72% chocolate shell, Valrhona ganache, salted caramel, gold leaf</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Desserts</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="desserts">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Creme Brulee" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Vanilla Crème Brûlée</h3>
+              <span class="menu-card__price">$18</span>
+            </div>
+            <p class="menu-card__desc">Madagascan vanilla bean custard, torched demerara crust, fresh berries</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Desserts</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="desserts">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600&q=80" alt="Souffle" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Grand Marnier Soufflé</h3>
+              <span class="menu-card__price">$22</span>
+            </div>
+            <p class="menu-card__desc">Classic French soufflé, Satsuma orange, crème anglaise, candied zest</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Desserts</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="menu-card tilt-card" data-cat="drinks">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1560508180-03f285f67ded?w=600&q=80" alt="Cocktail" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+            <span class="menu-card__badge">Signature</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Aurum Elixir</h3>
+              <span class="menu-card__price">$24</span>
+            </div>
+            <p class="menu-card__desc">Hennessy XO, saffron syrup, smoked citrus, edible gold shimmer</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Drinks</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="drinks">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80" alt="Wine" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Château Pétrus Reserve</h3>
+              <span class="menu-card__price">$480</span>
+            </div>
+            <p class="menu-card__desc">Pomerol AOC 2015 — velvet tannins, dark plum, cedar, exceptional finish</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Drinks</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="drinks">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=80" alt="Mocktail" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Rose Garden Mocktail</h3>
+              <span class="menu-card__price">$16</span>
+            </div>
+            <p class="menu-card__desc">Damascus rose water, lychee, elderflower tonic, crystallised violet</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Drinks</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <!-- CHEF SPECIALS -->
+        <div class="menu-card tilt-card" data-cat="chef">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=600&q=80" alt="Chef Special" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+            <span class="menu-card__badge">Chef Special</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Omakase Tasting Menu</h3>
+              <span class="menu-card__price">$320</span>
+            </div>
+            <p class="menu-card__desc">Seven-course journey curated daily by Chef Aurèle — the pinnacle of Aurum</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Chef Special</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="chef">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Lobster" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">Whole Brittany Lobster</h3>
+              <span class="menu-card__price">$145</span>
+            </div>
+            <p class="menu-card__desc">Live Breton lobster, bisque beurre blanc, caviar, micro-tarragon</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Chef Special</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+        <div class="menu-card tilt-card" data-cat="chef">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80" alt="Truffle Risotto" loading="lazy" />
+            <div class="menu-card__img-overlay"></div>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3 class="menu-card__name">White Truffle Risotto</h3>
+              <span class="menu-card__price">$95</span>
+            </div>
+            <p class="menu-card__desc">Carnaroli rice, Alba white truffle, aged parmigiano, Ligurian olive oil</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__tag">Chef Special</span>
+              <div class="menu-card__dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="menu-card__glow"></div>
+        </div>
+
+      </div><!-- /menu-grid -->
+
+      <div class="menu-section__cta reveal" data-delay="0.2">
+        <a href="#reservation" class="btn btn--gold">
+          <span class="btn__text">Book to Experience the Full Menu</span>
+          <span class="btn__shine"></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FEATURED DISHES / SPECIALS SHOWCASE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="specials" class="section specials-section">
+    <!-- Ambient background -->
+    <div class="specials-section__ambient"></div>
+    <div class="specials-section__grain"></div>
+
+    <div class="container">
+
+      <!-- Header -->
+      <div class="specials-section__header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">This Season</span>
+          <span class="section-label__line" style="transform:scaleX(-1)"></span>
+        </div>
+        <h2 class="section-title reveal" data-delay="0.1" style="text-align:center;">
+          Featured <em>Creations</em>
+        </h2>
+        <p class="section-subtitle reveal" data-delay="0.2" style="margin:0 auto;text-align:center;">
+          Seasonal signatures crafted at the height of their perfection —<br/>
+          available for a limited time only.
+        </p>
+      </div>
+
+      <!-- Hero Feature Card (large) -->
+      <div class="specials-hero reveal" data-delay="0.2">
+        <div class="specials-hero__img-wrap">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&q=90"
+               alt="Chef's featured creation" loading="lazy" />
+          <div class="specials-hero__img-overlay"></div>
+          <!-- Floating badge -->
+          <div class="specials-hero__badge glass-card">
+            <span class="specials-hero__badge-icon">✦</span>
+            <div>
+              <p class="specials-hero__badge-title">Chef's Feature</p>
+              <p class="specials-hero__badge-sub">Limited · This Season</p>
+            </div>
+          </div>
+        </div>
+        <div class="specials-hero__content">
+          <div class="specials-hero__eyebrow">
+            <span class="specials-hero__dot"></span>
+            <span>Chef Dominique Aurèle</span>
+          </div>
+          <h3 class="specials-hero__title">Saffron-Glazed Halibut<br/><em>with Ossetra Caviar</em></h3>
+          <p class="specials-hero__desc">
+            Wild-caught Atlantic halibut, slow-poached in saffron butter, finished with a
+            generous crown of Ossetra caviar, champagne beurre blanc, and micro chrysanthemum.
+            A dish that captures the essence of the sea in its most refined expression.
+          </p>
+          <div class="specials-hero__meta">
+            <div class="specials-hero__meta-item">
+              <span class="specials-hero__meta-label">Category</span>
+              <span class="specials-hero__meta-value">Main Course</span>
+            </div>
+            <div class="specials-hero__meta-sep"></div>
+            <div class="specials-hero__meta-item">
+              <span class="specials-hero__meta-label">Price</span>
+              <span class="specials-hero__meta-value">$165</span>
+            </div>
+            <div class="specials-hero__meta-sep"></div>
+            <div class="specials-hero__meta-item">
+              <span class="specials-hero__meta-label">Pairing</span>
+              <span class="specials-hero__meta-value">Chablis Premier Cru</span>
+            </div>
+          </div>
+          <a href="#reservation" class="btn btn--gold">
+            <span class="btn__text">Reserve to Experience</span>
+            <span class="btn__shine"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Smaller Feature Cards Grid -->
+      <div class="specials-grid">
+
+        <div class="specials-card reveal" data-delay="0.1">
+          <div class="specials-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=85"
+                 alt="Seasonal dish" loading="lazy" />
+            <div class="specials-card__overlay">
+              <div class="specials-card__overlay-content">
+                <span class="specials-card__overlay-cat">Starter</span>
+                <h4 class="specials-card__overlay-title">Truffle Velouté</h4>
+                <p class="specials-card__overlay-desc">Black truffle foam, 63° quail egg, chestnut cream</p>
+                <div class="specials-card__overlay-price">$52</div>
+                <a href="#reservation" class="specials-card__overlay-btn">
+                  <span>Reserve Now</span>
+                  <span class="specials-card__arrow">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="specials-card__info">
+              <span class="specials-card__cat">Starter</span>
+              <h4 class="specials-card__title">Truffle Velouté</h4>
+              <span class="specials-card__price">$52</span>
+            </div>
+            <div class="specials-card__corner-badge">New</div>
+          </div>
+        </div>
+
+        <div class="specials-card reveal" data-delay="0.2">
+          <div class="specials-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=85"
+                 alt="Seasonal dessert" loading="lazy" />
+            <div class="specials-card__overlay">
+              <div class="specials-card__overlay-content">
+                <span class="specials-card__overlay-cat">Dessert</span>
+                <h4 class="specials-card__overlay-title">Sakura Panna Cotta</h4>
+                <p class="specials-card__overlay-desc">Cherry blossom cream, raspberry coulis, edible petals</p>
+                <div class="specials-card__overlay-price">$28</div>
+                <a href="#reservation" class="specials-card__overlay-btn">
+                  <span>Reserve Now</span>
+                  <span class="specials-card__arrow">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="specials-card__info">
+              <span class="specials-card__cat">Dessert</span>
+              <h4 class="specials-card__title">Sakura Panna Cotta</h4>
+              <span class="specials-card__price">$28</span>
+            </div>
+            <div class="specials-card__corner-badge">Seasonal</div>
+          </div>
+        </div>
+
+        <div class="specials-card reveal" data-delay="0.3">
+          <div class="specials-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+                 alt="Wagyu tartar" loading="lazy" />
+            <div class="specials-card__overlay">
+              <div class="specials-card__overlay-content">
+                <span class="specials-card__overlay-cat">Main</span>
+                <h4 class="specials-card__overlay-title">Wagyu Tartare</h4>
+                <p class="specials-card__overlay-desc">Hand-cut A5 wagyu, smoked egg yolk, truffle mustard</p>
+                <div class="specials-card__overlay-price">$88</div>
+                <a href="#reservation" class="specials-card__overlay-btn">
+                  <span>Reserve Now</span>
+                  <span class="specials-card__arrow">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="specials-card__info">
+              <span class="specials-card__cat">Main</span>
+              <h4 class="specials-card__title">Wagyu Tartare</h4>
+              <span class="specials-card__price">$88</span>
+            </div>
+            <div class="specials-card__corner-badge">Chef's Pick</div>
+          </div>
+        </div>
+
+        <div class="specials-card reveal" data-delay="0.4">
+          <div class="specials-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80"
+                 alt="Gold leaf dessert" loading="lazy" />
+            <div class="specials-card__overlay">
+              <div class="specials-card__overlay-content">
+                <span class="specials-card__overlay-cat">Dessert</span>
+                <h4 class="specials-card__overlay-title">Gold Leaf Mille-Feuille</h4>
+                <p class="specials-card__overlay-desc">Caramelised pastry, Madagascan vanilla, 24k gold</p>
+                <div class="specials-card__overlay-price">$34</div>
+                <a href="#reservation" class="specials-card__overlay-btn">
+                  <span>Reserve Now</span>
+                  <span class="specials-card__arrow">→</span>
+                </a>
+              </div>
+            </div>
+            <div class="specials-card__info">
+              <span class="specials-card__cat">Dessert</span>
+              <h4 class="specials-card__title">Gold Leaf Mille-Feuille</h4>
+              <span class="specials-card__price">$34</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /specials-grid -->
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       GALLERY SECTION
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="gallery" class="section gallery-section">
+    <div class="gallery-section__bg-glow"></div>
+
+    <div class="container">
+      <div class="gallery-section__header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">Visual Story</span>
+          <span class="section-label__line" style="transform:scaleX(-1)"></span>
+        </div>
+        <h2 class="section-title reveal" data-delay="0.1" style="text-align:center;">
+          Inside <em>Aurum</em>
+        </h2>
+        <p class="section-subtitle reveal" data-delay="0.2" style="margin:0 auto;text-align:center;">
+          Where every frame is composed with the same care as every dish.
+        </p>
+      </div>
+    </div>
+
+    <!-- Full-bleed gallery grid -->
+    <div class="gallery-grid reveal" data-delay="0.3">
+
+      <!-- Row 1 — 3 cols -->
+      <div class="gallery-item gallery-item--tall" data-category="ambience">
+        <div class="gallery-item__img-wrap">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80"
+               alt="Aurum restaurant interior" loading="lazy" />
+        </div>
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__overlay-content">
+            <span class="gallery-item__cat">Ambience</span>
+            <h4 class="gallery-item__title">The Main Dining Room</h4>
+          </div>
+        </div>
+        <div class="gallery-item__zoom-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="food">
+        <div class="gallery-item__img-wrap">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&q=80"
+               alt="Artful plating" loading="lazy" />
+        </div>
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__overlay-content">
+            <span class="gallery-item__cat">Cuisine</span>
+            <h4 class="gallery-item__title">Artful Plating</h4>
+          </div>
+        </div>
+        <div class="gallery-item__zoom-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item gallery-item--wide" data-category="food">
+        <div class="gallery-item__img-wrap">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=900&q=80"
+               alt="Chef at work" loading="lazy" />
+        </div>
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__overlay-content">
+            <span class="gallery-item__cat">Kitchen</span>
+            <h4 class="gallery-item__title">The Art of Craft</h4>
+          </div>
+        </div>
+        <div class="gallery-item__zoom-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Row 2 — 2 cols wide -->
+      <div class="gallery-item gallery-item--wide" data-category="ambience">
+        <div class="gallery-item__img-wrap">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80"
+               alt="Evening dining" loading="lazy" />
+        </div>
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__overlay-content">
+            <span class="gallery-item__cat">Ambience</span>
+            <h4 class="gallery-item__title">An Evening at Aurum</h4>
+          </div>
+        </div>
+        <div class="gallery-item__zoom-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="food">
+        <div class="gallery-item__img-wrap">
+          <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=700&q=80"
+               alt="Fine dessert" loading="lazy" />
+        </div>
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__overlay-content">
+            <span class="gallery-item__cat">Dessert</span>
+            <h4 class="gallery-item__title">Sweet Finales</h4>
+          </div>
+        </div>
+        <div class="gallery-item__zoom-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="cocktails">
+        <div class="gallery-item__img-wrap">
+          <img src="https://images.unsplash.com/photo-1560508180-03f285f67ded?w=700&q=80"
+               alt="Signature cocktail" loading="lazy" />
+        </div>
+        <div class="gallery-item__overlay">
+          <div class="gallery-item__overlay-content">
+            <span class="gallery-item__cat">Cocktails</span>
+            <h4 class="gallery-item__title">Liquid Gold</h4>
+          </div>
+        </div>
+        <div class="gallery-item__zoom-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+    <!-- Lightbox -->
+    <div class="gallery-lightbox" id="galleryLightbox">
+      <div class="gallery-lightbox__backdrop"></div>
+      <div class="gallery-lightbox__content">
+        <img src="" alt="" id="lightboxImg" />
+        <button class="gallery-lightbox__close" id="lightboxClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="gallery-lightbox__caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       WHY CHOOSE US
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="why" class="section why-section">
+    <div class="why-section__bg-lines" aria-hidden="true"></div>
+    <div class="why-section__glow-left"></div>
+    <div class="why-section__glow-right"></div>
+
+    <div class="container">
+      <div class="why-section__header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">The Aurum Promise</span>
+          <span class="section-label__line" style="transform:scaleX(-1)"></span>
+        </div>
+        <h2 class="section-title reveal" data-delay="0.1" style="text-align:center;">
+          Why <em>Aurum</em>?
+        </h2>
+        <p class="section-subtitle reveal" data-delay="0.2" style="margin:0 auto;text-align:center;">
+          Every detail is an act of devotion — to the craft, to our guests, to the extraordinary.
+        </p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card glass-card reveal" data-delay="0.05">
+          <div class="why-card__icon-wrap">
+            <div class="why-card__icon-ring"></div>
+            <svg class="why-card__icon" viewBox="0 0 48 48" fill="none">
+              <path d="M24 6C24 6 12 14 12 26a12 12 0 0 0 24 0C36 14 24 6 24 6Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M24 18v8M20 26h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card__title">Fresh Daily Sourcing</h3>
+          <p class="why-card__desc">We source only the finest seasonal produce each morning — from Brittany oysters to Périgord truffles — ensuring every ingredient is at its peak.</p>
+          <div class="why-card__stat">
+            <span class="why-card__stat-num">100%</span>
+            <span class="why-card__stat-label">Fresh Daily</span>
+          </div>
+          <div class="why-card__border-glow"></div>
+        </div>
+
+        <div class="why-card glass-card reveal" data-delay="0.12">
+          <div class="why-card__icon-wrap">
+            <div class="why-card__icon-ring"></div>
+            <svg class="why-card__icon" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="20" r="8" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M10 40c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M30 8l2 2M18 8l-2 2M24 6V4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card__title">World-Class Chefs</h3>
+          <p class="why-card__desc">Our brigade of twelve chefs trained under Michelin-starred masters across Paris, Tokyo and New York — bringing global mastery to every plate.</p>
+          <div class="why-card__stat">
+            <span class="why-card__stat-num">12</span>
+            <span class="why-card__stat-label">Elite Chefs</span>
+          </div>
+          <div class="why-card__border-glow"></div>
+        </div>
+
+        <div class="why-card glass-card reveal" data-delay="0.19">
+          <div class="why-card__icon-wrap">
+            <div class="why-card__icon-ring"></div>
+            <svg class="why-card__icon" viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="14" width="32" height="24" rx="1" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M16 14V10a8 8 0 0 1 16 0v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="24" cy="26" r="3" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <h3 class="why-card__title">Luxury Dining Rooms</h3>
+          <p class="why-card__desc">Three distinct dining spaces — from intimate private cellars to our grand chandelier salon — each designed as an architectural expression of elegance.</p>
+          <div class="why-card__stat">
+            <span class="why-card__stat-num">3</span>
+            <span class="why-card__stat-label">Private Spaces</span>
+          </div>
+          <div class="why-card__border-glow"></div>
+        </div>
+
+        <div class="why-card glass-card reveal" data-delay="0.26">
+          <div class="why-card__icon-wrap">
+            <div class="why-card__icon-ring"></div>
+            <svg class="why-card__icon" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M24 16v8l5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card__title">Seamless Service</h3>
+          <p class="why-card__desc">From your first reservation to your final course, our team anticipates every need — invisible, intuitive, and utterly devoted to your experience.</p>
+          <div class="why-card__stat">
+            <span class="why-card__stat-num">4.9★</span>
+            <span class="why-card__stat-label">Service Rating</span>
+          </div>
+          <div class="why-card__border-glow"></div>
+        </div>
+
+        <div class="why-card glass-card reveal" data-delay="0.33">
+          <div class="why-card__icon-wrap">
+            <div class="why-card__icon-ring"></div>
+            <svg class="why-card__icon" viewBox="0 0 48 48" fill="none">
+              <path d="M24 8l4.5 9 10 1.5-7.25 7 1.75 10L24 31l-9 4.5 1.75-10L9.5 18.5l10-1.5L24 8Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card__title">Award-Winning</h3>
+          <p class="why-card__desc">Honoured with two Michelin stars, a place in the World's Top 50, and Forbes Five-Star recognition — a testament to unrelenting excellence.</p>
+          <div class="why-card__stat">
+            <span class="why-card__stat-num">24</span>
+            <span class="why-card__stat-label">Awards</span>
+          </div>
+          <div class="why-card__border-glow"></div>
+        </div>
+
+        <div class="why-card glass-card reveal" data-delay="0.40">
+          <div class="why-card__icon-wrap">
+            <div class="why-card__icon-ring"></div>
+            <svg class="why-card__icon" viewBox="0 0 48 48" fill="none">
+              <path d="M8 36c4-8 8-12 16-12s12 4 16 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M24 8c-4 0-8 4-8 10s4 10 8 10 8-4 8-10S28 8 24 8Z" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M14 14c-2 1-4 3-4 6M34 14c2 1 4 3 4 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card__title">Tailored Experiences</h3>
+          <p class="why-card__desc">Every visit is personal. We curate bespoke menus for celebrations, dietary preferences, and private events — your vision, our craft.</p>
+          <div class="why-card__stat">
+            <span class="why-card__stat-num">∞</span>
+            <span class="why-card__stat-label">Possibilities</span>
+          </div>
+          <div class="why-card__border-glow"></div>
+        </div>
+
+      </div><!-- /why-grid -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CHEF SECTION
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="chefs" class="section chef-section">
+    <div class="chef-section__bg-img"></div>
+    <div class="chef-section__bg-overlay"></div>
+    <!-- Floating decorative shapes -->
+    <div class="chef-float chef-float--1"></div>
+    <div class="chef-float chef-float--2"></div>
+    <div class="chef-float chef-float--3"></div>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="chef-section__header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">The Brigade</span>
+          <span class="section-label__line" style="transform:scaleX(-1)"></span>
+        </div>
+        <h2 class="section-title reveal" data-delay="0.1" style="text-align:center;">
+          Meet the <em>Visionaries</em>
+        </h2>
+        <p class="section-subtitle reveal" data-delay="0.2" style="margin:0 auto;text-align:center;">
+          The minds and hands behind every extraordinary dish at Aurum.
+        </p>
+      </div>
+
+      <div class="chef-grid">
+
+        <!-- Chef 1 — Lead -->
+        <div class="chef-card chef-card--lead reveal" data-delay="0.1">
+          <div class="chef-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80"
+                 alt="Chef Dominique Aurèle" loading="lazy" />
+            <div class="chef-card__img-overlay"></div>
+            <div class="chef-card__badge">Head Chef</div>
+          </div>
+          <div class="chef-card__body glass-card">
+            <div class="chef-card__info">
+              <h3 class="chef-card__name">Dominique Aurèle</h3>
+              <p class="chef-card__role">Executive Chef &amp; Founder</p>
+              <p class="chef-card__bio">Trained at Le Cordon Bleu and Le Bernardin, Chef Aurèle brings 22 years of Michelin-starred mastery. His cuisine is a dialogue between classical French tradition and the vibrant spice routes of the East.</p>
+            </div>
+            <div class="chef-card__speciality">
+              <span class="chef-card__spec-label">Speciality</span>
+              <span class="chef-card__spec-value">Modern French · Molecular</span>
+            </div>
+            <div class="chef-card__socials">
+              <a href="#" class="chef-social" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="chef-social" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="#" class="chef-social" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2Z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chef 2 -->
+        <div class="chef-card reveal" data-delay="0.2">
+          <div class="chef-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=700&q=80"
+                 alt="Chef Sofia Reyes" loading="lazy" />
+            <div class="chef-card__img-overlay"></div>
+            <div class="chef-card__badge">Pastry Chef</div>
+          </div>
+          <div class="chef-card__body glass-card">
+            <div class="chef-card__info">
+              <h3 class="chef-card__name">Sofia Reyes</h3>
+              <p class="chef-card__role">Head Pastry Chef</p>
+              <p class="chef-card__bio">A graduate of École Ferrandi Paris, Sofia turns sugar and chocolate into edible sculptures. Her desserts are theatrical, precise and utterly unforgettable.</p>
+            </div>
+            <div class="chef-card__speciality">
+              <span class="chef-card__spec-label">Speciality</span>
+              <span class="chef-card__spec-value">Patisserie · Chocolate Art</span>
+            </div>
+            <div class="chef-card__socials">
+              <a href="#" class="chef-social" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="chef-social" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chef 3 -->
+        <div class="chef-card reveal" data-delay="0.3">
+          <div class="chef-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?w=700&q=80"
+                 alt="Chef Kenji Mori" loading="lazy" />
+            <div class="chef-card__img-overlay"></div>
+            <div class="chef-card__badge">Sous Chef</div>
+          </div>
+          <div class="chef-card__body glass-card">
+            <div class="chef-card__info">
+              <h3 class="chef-card__name">Kenji Mori</h3>
+              <p class="chef-card__role">Sous Chef · Japanese Cuisine</p>
+              <p class="chef-card__bio">Trained in Tokyo's finest kaiseki restaurants, Kenji brings the precision of Japanese knife skills and the philosophy of wabi-sabi to Aurum's tasting menu.</p>
+            </div>
+            <div class="chef-card__speciality">
+              <span class="chef-card__spec-label">Speciality</span>
+              <span class="chef-card__spec-value">Kaiseki · Knife Art</span>
+            </div>
+            <div class="chef-card__socials">
+              <a href="#" class="chef-social" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="chef-social" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2Z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /chef-grid -->
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section testimonials-section">
+    <div class="testimonials-section__bg"></div>
+    <div class="testimonials-section__glow"></div>
+    <div class="container">
+      <div class="testimonials-section__header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">Guest Words</span>
+          <span class="section-label__line" style="transform:scaleX(-1)"></span>
+        </div>
+        <h2 class="section-title reveal" data-delay="0.1" style="text-align:center;">Voices of <em>Aurum</em></h2>
+        <p class="section-subtitle reveal" data-delay="0.2" style="margin:0 auto;text-align:center;">The highest honour &mdash; the words of those who have lived the experience.</p>
+      </div>
+      <div class="testimonials-slider reveal" data-delay="0.3">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card glass-card">
+            <div class="testimonial-card__quote-icon">&ldquo;</div>
+            <p class="testimonial-card__text">Aurum is not merely a restaurant &mdash; it is a pilgrimage for the senses. Chef Aurele's saffron halibut reduced me to silence. Every element was composed with a precision and poetry I have rarely encountered, even at three-Michelin-starred establishments.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80" alt="James Whitfield" loading="lazy" /></div>
+              <div class="testimonial-card__author-info">
+                <p class="testimonial-card__name">James Whitfield</p>
+                <p class="testimonial-card__title">Food Critic &middot; The Times</p>
+              </div>
+              <div class="testimonial-card__stars"><span>&#10022;&#10022;&#10022;&#10022;&#10022;</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="testimonial-card__quote-icon">&ldquo;</div>
+            <p class="testimonial-card__text">We celebrated our anniversary at Aurum and it was, without question, the most magical evening of our lives. The private dining room, the personalised menu, the staff who remembered every detail &mdash; nothing was left to chance.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=80" alt="Isabelle Laurent" loading="lazy" /></div>
+              <div class="testimonial-card__author-info">
+                <p class="testimonial-card__name">Isabelle Laurent</p>
+                <p class="testimonial-card__title">Interior Designer &middot; Paris</p>
+              </div>
+              <div class="testimonial-card__stars"><span>&#10022;&#10022;&#10022;&#10022;&#10022;</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="testimonial-card__quote-icon">&ldquo;</div>
+            <p class="testimonial-card__text">The wagyu tenderloin was transcendent. I have dined at Nobu, Masa, and Eleven Madison Park, and Aurum stands comfortably among the world's finest. The wine programme alone deserves its own Michelin star. An extraordinary achievement.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&q=80" alt="Richard Al Mansouri" loading="lazy" /></div>
+              <div class="testimonial-card__author-info">
+                <p class="testimonial-card__name">Richard Al Mansouri</p>
+                <p class="testimonial-card__title">CEO &middot; Meridian Group</p>
+              </div>
+              <div class="testimonial-card__stars"><span>&#10022;&#10022;&#10022;&#10022;&#10022;</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="testimonial-card__quote-icon">&ldquo;</div>
+            <p class="testimonial-card__text">Aurum redefined what I thought possible in a dining room. Sofia's chocolate sphere dessert is a moment of pure theatre &mdash; it melted before my eyes and with it, every preconception I had about what dessert could be. Utterly unforgettable.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80" alt="Priya Mehta" loading="lazy" /></div>
+              <div class="testimonial-card__author-info">
+                <p class="testimonial-card__name">Priya Mehta</p>
+                <p class="testimonial-card__title">Luxury Travel Writer</p>
+              </div>
+              <div class="testimonial-card__stars"><span>&#10022;&#10022;&#10022;&#10022;&#10022;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials-controls">
+          <button class="testimonials-btn" id="testimonialPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="testimonials-dots" id="testimonialDots">
+            <button class="testimonials-dot active" data-idx="0"></button>
+            <button class="testimonials-dot" data-idx="1"></button>
+            <button class="testimonials-dot" data-idx="2"></button>
+            <button class="testimonials-dot" data-idx="3"></button>
+          </div>
+          <button class="testimonials-btn" id="testimonialNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section id="reservation" class="section reservation-section">
+    <div class="reservation-section__bg"></div>
+    <div class="reservation-section__overlay"></div>
+    <div class="res-float res-float--1"></div>
+    <div class="res-float res-float--2"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="reservation-grid">
+        <div class="reservation-info reveal-left">
+          <div class="section-label" style="margin-bottom:24px;">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">Reserve Your Table</span>
+          </div>
+          <h2 class="section-title" style="margin-bottom:20px;">Begin Your <em>Experience</em></h2>
+          <p class="reservation-info__desc">Secure your place at Aurum's table. We recommend reservations at least 72 hours in advance for weekend dining. For private events and bespoke menus, please contact us directly.</p>
+          <div class="reservation-info__details">
+            <div class="res-detail">
+              <span class="res-detail__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+              <div><p class="res-detail__label">Opening Hours</p><p class="res-detail__value">Tue &ndash; Sun: 6:00 PM &ndash; 11:30 PM</p></div>
+            </div>
+            <div class="res-detail">
+              <span class="res-detail__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div><p class="res-detail__label">Location</p><p class="res-detail__value">Burj Khalifa Boulevard, Dubai, UAE</p></div>
+            </div>
+            <div class="res-detail">
+              <span class="res-detail__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 4.08 5.18 2 2 0 0 1 6.1 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L10.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 24 18v2l-2-.08Z"/></svg></span>
+              <div><p class="res-detail__label">Reservations</p><p class="res-detail__value">+971 4 000 0000</p></div>
+            </div>
+          </div>
+          <div class="reservation-info__awards">
+            <div class="res-award-pill"><span class="res-award-icon">&#10022;</span><span>Michelin 2&#9733;</span></div>
+            <div class="res-award-pill"><span class="res-award-icon">&#10022;</span><span>World Top 50</span></div>
+            <div class="res-award-pill"><span class="res-award-icon">&#10022;</span><span>Forbes 5&#9733;</span></div>
+          </div>
+        </div>
+        <div class="reservation-form-wrap reveal-right">
+          <div class="reservation-form glass-card">
+            <div class="reservation-form__header">
+              <h3 class="reservation-form__title">Book a Table</h3>
+              <p class="reservation-form__sub">All fields required</p>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="resName" class="form-input" placeholder=" " autocomplete="name" />
+                <label for="resName" class="form-label">Full Name</label>
+                <span class="form-line"></span>
+              </div>
+              <div class="form-group">
+                <input type="email" id="resEmail" class="form-input" placeholder=" " autocomplete="email" />
+                <label for="resEmail" class="form-label">Email Address</label>
+                <span class="form-line"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="tel" id="resPhone" class="form-input" placeholder=" " autocomplete="tel" />
+                <label for="resPhone" class="form-label">Phone Number</label>
+                <span class="form-line"></span>
+              </div>
+              <div class="form-group">
+                <select id="resGuests" class="form-input form-select">
+                  <option value="" disabled selected hidden></option>
+                  <option>1 Guest</option><option>2 Guests</option><option>3 Guests</option>
+                  <option>4 Guests</option><option>5 Guests</option><option>6 Guests</option>
+                  <option>7+ Guests (Private)</option>
+                </select>
+                <label for="resGuests" class="form-label">Number of Guests</label>
+                <span class="form-line"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="date" id="resDate" class="form-input" />
+                <label for="resDate" class="form-label">Preferred Date</label>
+                <span class="form-line"></span>
+              </div>
+              <div class="form-group">
+                <select id="resTime" class="form-input form-select">
+                  <option value="" disabled selected hidden></option>
+                  <option>18:00</option><option>18:30</option><option>19:00</option>
+                  <option>19:30</option><option>20:00</option><option>20:30</option>
+                  <option>21:00</option><option>21:30</option><option>22:00</option>
+                </select>
+                <label for="resTime" class="form-label">Preferred Time</label>
+                <span class="form-line"></span>
+              </div>
+            </div>
+            <div class="form-group form-group--full">
+              <textarea id="resNotes" class="form-input form-textarea" placeholder=" " rows="3"></textarea>
+              <label for="resNotes" class="form-label">Special Requests</label>
+              <span class="form-line"></span>
+            </div>
+            <button class="btn btn--gold form-submit" id="reservationSubmit" type="button">
+              <span class="btn__text">Confirm Reservation</span>
+              <span class="btn__shine"></span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <span class="form-success__icon">&#10022;</span>
+              <p class="form-success__title">Reservation Received</p>
+              <p class="form-success__sub">We will confirm your table within 24 hours. We look forward to welcoming you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section faq-section">
+    <div class="faq-section__bg-text" aria-hidden="true">FAQ</div>
+    <div class="container">
+      <div class="faq-section__inner">
+        <div class="faq-section__left reveal-left">
+          <div class="section-label" style="margin-bottom:20px;">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">Questions</span>
+          </div>
+          <h2 class="section-title" style="margin-bottom:16px;">Frequently <em>Asked</em></h2>
+          <p class="section-subtitle">Everything you need to know before your visit to Aurum.</p>
+          <a href="#contact" class="btn btn--ghost" style="margin-top:36px;"><span class="btn__text">Ask a Question</span></a>
+        </div>
+        <div class="faq-list reveal-right" id="faqList">
+          <div class="faq-item">
+            <button class="faq-item__trigger">
+              <span class="faq-item__q">Do you accommodate dietary requirements?</span>
+              <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="faq-item__body"><p>Absolutely. We cater to all dietary needs including vegan, vegetarian, gluten-free, halal and severe allergies. Please inform us at the time of booking so our chefs can prepare a bespoke menu tailored to your requirements.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger">
+              <span class="faq-item__q">What is your dress code?</span>
+              <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="faq-item__body"><p>Aurum maintains a smart-elegant dress code. We kindly request gentlemen wear a collared shirt and closed shoes. Formal evening wear is welcomed and encouraged. Sportswear, shorts, and casual sandals are not permitted.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger">
+              <span class="faq-item__q">Can I book for a private event or celebration?</span>
+              <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="faq-item__body"><p>Yes. Aurum offers three private dining rooms for exclusive events &mdash; from intimate dinners of six to corporate celebrations of forty. We provide fully bespoke menus, wine pairings, floral arrangements, and dedicated service teams. Contact our events team for availability.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger">
+              <span class="faq-item__q">Is there a cancellation policy?</span>
+              <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="faq-item__body"><p>We kindly ask that cancellations be made at least 48 hours before your reservation. Late cancellations or no-shows may incur a per-person charge. For private dining bookings, a deposit is required at the time of reservation and is non-refundable within 72 hours of the event.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger">
+              <span class="faq-item__q">Do you offer a wine pairing programme?</span>
+              <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="faq-item__body"><p>Our sommelier curates a carefully selected wine pairing for each course of our tasting menu, drawing from a cellar of over 900 labels spanning Burgundy, Bordeaux, Champagne, Piedmont, and the New World. Non-alcoholic pairings are also available.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger">
+              <span class="faq-item__q">Is valet parking available?</span>
+              <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="faq-item__body"><p>Complimentary valet parking is available for all Aurum guests from 5:30 PM daily. Our valet service operates at the main entrance on Burj Khalifa Boulevard. Please allow our team to assist you upon arrival.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="contact-section__bg"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="contact-section__header">
+        <div class="section-label reveal" style="justify-content:center;">
+          <span class="section-label__line"></span>
+          <span class="section-label__text">Get in Touch</span>
+          <span class="section-label__line" style="transform:scaleX(-1)"></span>
+        </div>
+        <h2 class="section-title reveal" data-delay="0.1" style="text-align:center;">We Would Love to <em>Hear</em> From You</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-map reveal-left">
+          <div class="contact-map__inner">
+            <div class="contact-map__placeholder">
+              <svg viewBox="0 0 80 80" fill="none" class="contact-map__pin"><path d="M40 10C27.85 10 18 19.85 18 32c0 17 22 38 22 38s22-21 22-38C62 19.85 52.15 10 40 10Z" stroke="#c9a84c" stroke-width="1.2"/><circle cx="40" cy="32" r="7" stroke="#c9a84c" stroke-width="1.2"/></svg>
+              <p class="contact-map__label">Burj Khalifa Boulevard<br/>Dubai, UAE</p>
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="contact-map__link">Open in Google Maps &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right reveal-right">
+          <div class="contact-details">
+            <div class="contact-detail-item"><span class="contact-detail-icon">&#10022;</span><div><p class="contact-detail-label">Address</p><p class="contact-detail-value">Burj Khalifa Boulevard, Downtown Dubai, UAE</p></div></div>
+            <div class="contact-detail-item"><span class="contact-detail-icon">&#10022;</span><div><p class="contact-detail-label">Phone</p><p class="contact-detail-value">+971 4 000 0000</p></div></div>
+            <div class="contact-detail-item"><span class="contact-detail-icon">&#10022;</span><div><p class="contact-detail-label">Email</p><p class="contact-detail-value">hello@aurum-restaurant.com</p></div></div>
+            <div class="contact-detail-item"><span class="contact-detail-icon">&#10022;</span><div><p class="contact-detail-label">Hours</p><p class="contact-detail-value">Tue &ndash; Sun &middot; 6:00 PM &ndash; 11:30 PM</p></div></div>
+          </div>
+          <div class="contact-socials">
+            <a href="#" class="contact-social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg><span>Instagram</span>
+            </a>
+            <a href="#" class="contact-social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg><span>Facebook</span>
+            </a>
+            <a href="#" class="contact-social-link" aria-label="TripAdvisor">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><span>TripAdvisor</span>
+            </a>
+          </div>
+          <div class="contact-form glass-card">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="ctName" class="form-input" placeholder=" " /><label for="ctName" class="form-label">Name</label><span class="form-line"></span>
+              </div>
+              <div class="form-group">
+                <input type="email" id="ctEmail" class="form-input" placeholder=" " /><label for="ctEmail" class="form-label">Email</label><span class="form-line"></span>
+              </div>
+            </div>
+            <div class="form-group form-group--full">
+              <textarea id="ctMsg" class="form-input form-textarea" placeholder=" " rows="3"></textarea><label for="ctMsg" class="form-label">Message</label><span class="form-line"></span>
+            </div>
+            <button class="btn btn--gold" type="button" id="contactSubmit"><span class="btn__text">Send Message</span><span class="btn__shine"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <!-- Ambient top glow -->
+    <div class="footer__glow-top"></div>
+    <!-- Decorative divider -->
+    <div class="footer__divider-line">
+      <span class="footer__divider-icon">&#10022;</span>
+    </div>
+
+    <!-- Main footer content -->
+    <div class="footer__main">
+      <div class="container">
+        <div class="footer__grid">
+
+          <!-- Brand column -->
+          <div class="footer__brand">
+            <a href="#home" class="footer__logo">
+              <span class="footer__logo-a">A</span><span class="footer__logo-urum">URUM</span>
+            </a>
+            <p class="footer__tagline">Where Flavour Becomes Art</p>
+            <p class="footer__brand-desc">
+              A Michelin two-starred sanctuary of elevated cuisine
+              in the heart of Dubai. Every evening, a memory.
+              Every plate, a masterpiece.
+            </p>
+            <!-- Social icons -->
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="footer__social" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg>
+              </a>
+              <a href="#" class="footer__social" aria-label="Twitter/X">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2Z"/></svg>
+              </a>
+              <a href="#" class="footer__social" aria-label="TripAdvisor">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0"/><path d="M12 8v4l3 3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div class="footer__col">
+            <h4 class="footer__col-title">Explore</h4>
+            <ul class="footer__links">
+              <li><a href="#home" class="footer__link">Home</a></li>
+              <li><a href="#about" class="footer__link">Our Story</a></li>
+              <li><a href="#menu" class="footer__link">The Menu</a></li>
+              <li><a href="#specials" class="footer__link">Seasonal Specials</a></li>
+              <li><a href="#gallery" class="footer__link">Gallery</a></li>
+              <li><a href="#chefs" class="footer__link">Our Chefs</a></li>
+            </ul>
+          </div>
+
+          <!-- Experience links -->
+          <div class="footer__col">
+            <h4 class="footer__col-title">Experience</h4>
+            <ul class="footer__links">
+              <li><a href="#reservation" class="footer__link">Reserve a Table</a></li>
+              <li><a href="#faq" class="footer__link">Private Dining</a></li>
+              <li><a href="#faq" class="footer__link">Wine Programme</a></li>
+              <li><a href="#testimonials" class="footer__link">Guest Reviews</a></li>
+              <li><a href="#faq" class="footer__link">Dress Code</a></li>
+              <li><a href="#contact" class="footer__link">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter + info -->
+          <div class="footer__col footer__col--wide">
+            <h4 class="footer__col-title">Stay Connected</h4>
+            <p class="footer__newsletter-desc">
+              Receive exclusive invitations to seasonal menus, chef events, and private tastings.
+            </p>
+            <div class="footer__newsletter">
+              <div class="footer__newsletter-input-wrap">
+                <input type="email" class="footer__newsletter-input" placeholder="Your email address" id="newsletterEmail" />
+                <button class="footer__newsletter-btn" id="newsletterBtn" type="button" aria-label="Subscribe">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <p class="footer__newsletter-ok" id="newsletterOk">&#10022; You are now on the list</p>
+            </div>
+            <!-- Awards row -->
+            <div class="footer__awards">
+              <div class="footer__award">
+                <span class="footer__award-icon">&#10022;</span>
+                <div>
+                  <p class="footer__award-name">Michelin Guide</p>
+                  <p class="footer__award-val">Two Stars</p>
+                </div>
+              </div>
+              <div class="footer__award">
+                <span class="footer__award-icon">&#10022;</span>
+                <div>
+                  <p class="footer__award-name">World&rsquo;s 50 Best</p>
+                  <p class="footer__award-val">Top 50 Restaurants</p>
+                </div>
+              </div>
+              <div class="footer__award">
+                <span class="footer__award-icon">&#10022;</span>
+                <div>
+                  <p class="footer__award-name">Forbes Travel</p>
+                  <p class="footer__award-val">Five Star Rating</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__bottom-inner">
+          <p class="footer__copy">
+            &copy; 2026 Aurum Restaurant. All rights reserved.
+          </p>
+          <div class="footer__bottom-links">
+            <a href="#" class="footer__bottom-link">Privacy Policy</a>
+            <span class="footer__bottom-sep">&#10022;</span>
+            <a href="#" class="footer__bottom-link">Terms &amp; Conditions</a>
+            <span class="footer__bottom-sep">&#10022;</span>
+            <a href="#" class="footer__bottom-link">Cookies</a>
+          </div>
+          <p class="footer__credit">
+            Designed by <a href="#" class="footer__credit-link">Zyvex</a> &mdash; Premium Web Design
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
